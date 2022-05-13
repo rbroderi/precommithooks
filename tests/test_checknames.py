@@ -5,7 +5,7 @@ import sys
 import unittest
 from pathlib import Path
 
-from pre_commit_hooks.checknames import check_names
+from precommithooks.checknames import check_names
 
 sys.path.append(str(Path(__file__).parent.parent))
 RESOURCES = Path(__file__).parent / "resources"
