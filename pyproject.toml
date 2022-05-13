@@ -2,13 +2,6 @@
 requires = [ "setuptools >= 35.0.2", "wheel >= 0.29.0"]
 build-backend = "setuptools.build_meta"
 
-[project]
-dynamic = ["version", "description"]
-keywords = ["pre-commit", "validation"]
-
-[project.urls]
-Home = "https://github.com/rbroderi/precommithooks"
-
 [tool.tox]
 legacy_tox_ini = """
 [tox]
