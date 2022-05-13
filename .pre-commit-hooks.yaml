@@ -3,3 +3,4 @@
   description: verifies names, files and directories comply with pep8
   entry: check-names
   language: python
+  types: [file, python]
