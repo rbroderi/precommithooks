@@ -18,51 +18,61 @@ class TestCheckNames(unittest.TestCase):
     def test_check_names_file_not_exist(self) -> None:
         self.assertNotEqual(check_names(["notexist.txt"]), 0)
 
+    def test_check_names_test_files(self) -> None:
+        self.assertEqual(check_names([RESOURCES / "test_!.txt"]), 0)
+        self.assertEqual(check_names([RESOURCES / "!_test.txt"]), 0)
+
+        self.assertNotEqual(
+            check_names([RESOURCES / "test_!.txt"], ignore_test_files=False),
+            0,
+        )
+        self.assertNotEqual(
+            check_names([RESOURCES / "!_test.txt"], ignore_test_files=False),
+            0,
+        )
+
     def test_check_names_file(self) -> None:
         self.assertEqual(
-            check_names([str(x) for x in {RESOURCES / "withoutunderscore.txt"}]),
+            check_names([RESOURCES / "withoutunderscore.txt"]),
             0,
         )
         self.assertEqual(
-            check_names([str(x) for x in {RESOURCES / "with_underscore.txt"}]),
+            check_names([RESOURCES / "with_underscore.txt"]),
             0,
         )
-        self.assertNotEqual(check_names([str(x) for x in {RESOURCES / "!.txt"}]), 0)
+        self.assertNotEqual(check_names([RESOURCES / "!.txt"]), 0)
         self.assertEqual(
-            check_names([str(x) for x in {RESOURCES / "with_underscore.txt"}]),
+            check_names([RESOURCES / "with_underscore.txt"]),
             0,
         )
         self.assertNotEqual(
             check_names(
-                [
-                    str(x)
-                    for x in {RESOURCES / "with_underscores" / "withoutunderscore.txt"}
-                ],
+                [RESOURCES / "with_underscores" / "withoutunderscore.txt"],
             ),
             0,
         )
         self.assertNotEqual(
             check_names(
-                [str(x) for x in {RESOURCES / "loooooooooooooooooooongfilename.txt"}],
+                [RESOURCES / "loooooooooooooooooooongfilename.txt"],
             ),
             0,
         )
         self.assertEqual(
             check_names(
-                [str(x) for x in {RESOURCES / "loooooooooooooooooooongfilename.txt"}],
+                [RESOURCES / "loooooooooooooooooooongfilename.txt"],
                 short_name_limit=40,
             ),
             0,
         )
         self.assertEqual(
             check_names(
-                [str(x) for x in {RESOURCES / "namewithnums123.txt"}],
+                [RESOURCES / "namewithnums123.txt"],
             ),
             0,
         )
         self.assertNotEqual(
             check_names(
-                [str(x) for x in {RESOURCES / "namewithnums123.txt"}],
+                [RESOURCES / "namewithnums123.txt"],
                 mode=Mode.STRICT,
             ),
             0,

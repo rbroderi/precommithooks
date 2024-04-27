@@ -27,16 +27,19 @@ class Mode(Enum):
 SHORT_NAME_LIMIT_DEFAULT = 30
 
 
-def check_names(
-    filenames: Sequence[str],
+def check_names(  # noqa: C901, PLR0912
+    filenames: Sequence[str | Path],
     short_name_limit: int = SHORT_NAME_LIMIT_DEFAULT,
-    ignore_test_files: bool = False,
+    ignore_test_files: bool = True,
     mode: Mode = Mode.NON_STRICT,
 ) -> int:
     """Check the file."""
     for file_to_check in filenames:
         # verify file exists
-        file_path = Path(file_to_check)
+        if isinstance(file_to_check, str):
+            file_path = Path(file_to_check)
+        else:
+            file_path = file_to_check
         if not file_path.exists():
             print("ERROR: the file doesn't exist")
             return ExitCode.OS_FILE
