@@ -15,6 +15,9 @@ class TestCheckNames(unittest.TestCase):
     def test_check_names_no_files(self) -> None:
         self.assertEqual(check_names([]), 0)
 
+    def test_check_names_file_not_exist(self) -> None:
+        self.assertNotEqual(check_names(["notexist.txt"]), 0)
+
     def test_check_names_file(self) -> None:
         self.assertEqual(
             check_names([str(x) for x in {RESOURCES / "withoutunderscore.txt"}]),
