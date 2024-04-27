@@ -1,6 +1,0 @@
-- id: check-names
-  name: check names for compliance with pep8
-  description: verifies names, files and directories comply with pep8
-  entry: check-names
-  language: python
-  types: [file, python]
