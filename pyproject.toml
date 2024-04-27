@@ -1,11 +1,11 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=67.0"]
+requires = ["setuptools>=67.0", "wheel"]
 
 [project]
 authors = [{"name" = "R.Broderick"}]
 description = "Pre-commit hooks for Python projects."
-version = "1.0.0"
+version = "1.0.1"
 license = {"file" = "LICENSE"}
 name = "precommithooks"
 readme = {file = "README.md", content-type = "text/markdown"}
@@ -50,6 +50,9 @@ docs = [
   "autodocsumm",
   "sphinx-pyproject"
 ]
+
+[project.scripts]
+check_names = "precommithooks:main"
 
 [tool.dapperdata]
 exclude_paths = [".venv", ".mypy_cache", ".git", ".vscode"]
@@ -237,8 +240,9 @@ readme = {file = ["README.md"]}
 [tool.setuptools.package-data]
 library = ["py.typed"]
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools.packages.find]
+exclude = ["docs*", "tests*"]
+where = ["src"]
 
 [tool.sphinx-pyproject]
 # -- General configuration ---------------------------------------------------
