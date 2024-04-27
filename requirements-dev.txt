@@ -131,7 +131,7 @@ typing-extensions==4.11.0
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.1.38
+uv==0.1.39
 validate-pyproject==0.16
 virtualenv==20.26.0
     # via
