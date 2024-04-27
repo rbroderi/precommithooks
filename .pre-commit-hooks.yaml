@@ -1,4 +1,5 @@
 -   id: python_file_name_check
+    name: "Python: File name check"
     description: check that filenames comply with pep8.
     entry: check_names
     language: python
