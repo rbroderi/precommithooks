@@ -1,0 +1,8 @@
+-   id: python_file_name_check
+    description: check that filenames comply with pep8.
+    entry: check_names
+    language: python
+    types: [file, python]
+    pass_filenames: true
+    verbose: false
+    stages: [commit, push, manual]
