@@ -30,6 +30,7 @@ SHORT_NAME_LIMIT_DEFAULT = 30
 def check_names(
     filenames: Sequence[str],
     short_name_limit: int = SHORT_NAME_LIMIT_DEFAULT,
+    ignore_test_files: bool = False,
     mode: Mode = Mode.NON_STRICT,
 ) -> int:
     """Check the file."""
@@ -42,7 +43,9 @@ def check_names(
         module_name = file_path.stem
         package_name = file_path.parent.name
         # check length for module and package name skip test file
-        if module_name.startswith("test_") or module_name.endswith("_test"):
+        if ignore_test_files and (
+            module_name.startswith("test_") or module_name.endswith("_test")
+        ):
             continue
         if len(module_name) > short_name_limit:
             print(f"ERROR: module:'{module_name}' is longer than {short_name_limit}")
@@ -100,6 +103,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--short-name-limit",
         help="How long is a 'short' name",
     )
+    parser.add_argument(
+        "-t",
+        "--ignore-test-files",
+        action="store_true",
+        help="Ignore test files",
+    )
     args = parser.parse_args(argv)
     mode = Mode.NON_STRICT
     short_name_limit = (
@@ -110,7 +119,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.strict:
         mode = Mode.STRICT
     if argv is not None:
-        return check_names(args.filenames, short_name_limit=short_name_limit, mode=mode)
+        return check_names(
+            args.filenames,
+            short_name_limit=short_name_limit,
+            ignore_test_files=args.ignore_test_files,
+            mode=mode,
+        )
     return ExitCode.OK
 
 
