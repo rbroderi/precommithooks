@@ -3,12 +3,12 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools>=67.0"]
 
 [project]
-authors = [{ "name" = "R.Broderick" }]
+authors = [{"name" = "R.Broderick"}]
 description = "Pre-commit hooks for Python projects."
 version = "1.0.0"
-license = { "file" = "LICENSE" }
+license = {"file" = "LICENSE"}
 name = "precommithooks"
-readme = { file = "README.md", content-type = "text/markdown" }
+readme = {file = "README.md", content-type = "text/markdown"}
 dependencies = ["typing-extensions; python_version < '3.12'"]
 requires-python = ">=3.10.0"
 
@@ -33,7 +33,7 @@ dev = [
   "tox-pyenv-redux",
   "pylint",
   "perflint",
-  "snakeviz",
+  "snakeviz"
 ]
 # pep725
 # [external]
@@ -48,7 +48,7 @@ docs = [
   "sphinx-rtd-theme",
   "sphinx-rtd-size",
   "autodocsumm",
-  "sphinx-pyproject",
+  "sphinx-pyproject"
 ]
 
 [tool.dapperdata]
@@ -165,7 +165,7 @@ disable = [
   "W1509",
   "W1510",
   # "W2901",
-  "W3301",
+  "W3301"
 ]
 
 [tool.pytest.ini_options]
@@ -223,7 +223,7 @@ ignore = [
   "COM812",
   "ISC001",
   "FBT001",
-  "FBT002",
+  "FBT002"
 ]
 fixable = ["ALL"]
 unfixable = []
@@ -232,7 +232,7 @@ unfixable = []
 force-single-line = true
 
 [tool.setuptools.dynamic]
-readme = { file = ["README.md"] }
+readme = {file = ["README.md"]}
 
 [tool.setuptools.package-data]
 library = ["py.typed"]
@@ -251,18 +251,18 @@ extensions = [
   "sphinx.ext.coverage",
   "autodocsumm",
   "sphinx_rtd_theme",
-  'sphinx_rtd_size',
+  'sphinx_rtd_size'
 ]
 sphinx_rtd_size_width = "90%"
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-auto_doc_default_options = { 'autosummary' = true }
+auto_doc_default_options = {'autosummary' = true}
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 html_theme = "sphinx_rtd_theme"
 html_style = "css/custom.css"
 html_static_path = ["_static"]
-html_theme_options = { 'display_version' = true, 'sticky_navigation' = true, 'includehidden' = true, 'titles_only' = false }
+html_theme_options = {'display_version' = true, 'sticky_navigation' = true, 'includehidden' = true, 'titles_only' = false}
 autosummary_generate = true
 
 [tool.sphinx-pyproject.autodoc_default_options]

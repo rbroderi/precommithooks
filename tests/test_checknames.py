@@ -5,7 +5,7 @@ import sys
 import unittest
 from pathlib import Path
 
-from precommithooks.checknames import check_names
+from precommithooks import check_names, Mode
 
 sys.path.append(str(Path(__file__).parent.parent))
 RESOURCES = Path(__file__).parent / "resources"
@@ -35,6 +35,32 @@ class TestCheckNames(unittest.TestCase):
                     str(x)
                     for x in {RESOURCES / "with_underscores" / "withoutunderscore.txt"}
                 ],
+            ),
+            0,
+        )
+        self.assertNotEqual(
+            check_names(
+                [str(x) for x in {RESOURCES / "loooooooooooooooooooongfilename.txt"}],
+            ),
+            0,
+        )
+        self.assertEqual(
+            check_names(
+                [str(x) for x in {RESOURCES / "loooooooooooooooooooongfilename.txt"}],
+                short_name_limit=40,
+            ),
+            0,
+        )
+        self.assertEqual(
+            check_names(
+                [str(x) for x in {RESOURCES / "namewithnums123.txt"}],
+            ),
+            0,
+        )
+        self.assertNotEqual(
+            check_names(
+                [str(x) for x in {RESOURCES / "namewithnums123.txt"}],
+                mode=Mode.STRICT,
             ),
             0,
         )

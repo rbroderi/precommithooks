@@ -89,7 +89,7 @@ repos:
     hooks:
       - id: python_file_name_check
         name: "Python: File name check"
-        entry: "python ./src/precommithooks/check_names.py"
+        entry: "python ./src/precommithooks/checknames.py"
         language: python
         pass_filenames: true
         types: [file, python]

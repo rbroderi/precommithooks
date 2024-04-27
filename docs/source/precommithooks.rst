@@ -9,4 +9,4 @@ Module contents
    :undoc-members:
    :show-inheritance:
 
-.. autofunction:: main
+.. autofunction:: check_names
