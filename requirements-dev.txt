@@ -89,7 +89,7 @@ pyproject-api==1.6.1
     # via tox
 pyproject-hooks==1.0.0
     # via build
-pytest==8.1.2
+pytest==8.2.0
     # via
     #   pytest-cov
     #   pytest-pretty

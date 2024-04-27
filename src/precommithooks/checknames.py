@@ -86,7 +86,7 @@ def check_names(  # noqa: C901, PLR0912
     return ExitCode.OK
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def main() -> int:
     """Get files from passed argument."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -112,7 +112,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         action="store_true",
         help="Ignore test files",
     )
-    args = parser.parse_args(argv)
+    args = parser.parse_args()
     mode = Mode.NON_STRICT
     short_name_limit = (
         int(args.short_name_limit)
@@ -121,14 +121,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     if args.strict:
         mode = Mode.STRICT
-    if argv is not None:
-        return check_names(
-            args.filenames,
-            short_name_limit=short_name_limit,
-            ignore_test_files=args.ignore_test_files,
-            mode=mode,
-        )
-    return ExitCode.OK
+    return check_names(
+        args.filenames,
+        short_name_limit=short_name_limit,
+        ignore_test_files=args.ignore_test_files,
+        mode=mode,
+    )
 
 
 if __name__ == "__main__":
