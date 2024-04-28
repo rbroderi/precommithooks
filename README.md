@@ -26,6 +26,11 @@ Usage:
     hooks:
       - id: python_file_name_check
         name: "Python: File name check"
-        args: [-s]
+        args: [--strict]
         verbose: true
 ```
+
+## Args
+* --strict (default to false)
+* --short-name-limit (defaults to 30)
+* --ignore-test-files (defaults to false)
