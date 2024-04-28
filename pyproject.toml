@@ -5,7 +5,7 @@ requires = ["setuptools>=67.0", "wheel"]
 [project]
 authors = [{"name" = "R.Broderick"}]
 description = "Pre-commit hooks for Python projects."
-version = "1.0.1"
+version = "1.0.2"
 license = {"file" = "LICENSE"}
 name = "precommithooks"
 readme = {file = "README.md", content-type = "text/markdown"}
