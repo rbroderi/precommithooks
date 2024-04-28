@@ -6,4 +6,5 @@
     types: [file, python]
     pass_filenames: true
     verbose: false
+    args: [--ignore-test-files]
     stages: [commit, push, manual]
