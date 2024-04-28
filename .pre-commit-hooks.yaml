@@ -4,13 +4,13 @@
   entry: check_names
   language: python
   types:
-  - file
-  - python
+    - file
+    - python
   pass_filenames: true
   verbose: false
   args:
-  - "--ignore-test-files"
+    - "--ignore-test-files"
   stages:
-  - commit
-  - push
-  - manual
+    - commit
+    - push
+    - manual
