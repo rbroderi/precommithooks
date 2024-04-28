@@ -6,7 +6,7 @@ precommithooks
 [![Generic badge](https://img.shields.io/badge/beartype-runtime_typed-cyan.svg)](https://github.com/beartype/beartype)
 [![Generic badge](https://img.shields.io/badge/bandit-checked-magenta.svg)](https://bandit.readthedocs.io/en/latest/)
 [![Generic badge](https://img.shields.io/badge/uv-requirements-yellow.svg)](https://github.com/astral-sh/uv)
-[![Dynamic TOML Badge](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Frbroderi%2Fprecommithooks%2Fmain%2Fpyproject.toml&query=%24.project.version&label=Version)](https://github.com/rbroderi/releases/precommithooks)
+[![Dynamic TOML Badge](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Frbroderi%2Fprecommithooks%2Fmain%2Fpyproject.toml&query=%24.project.version&label=Version)](https://github.com/rbroderi/precommithooks/releases)
 
 My custom precommit hooks, including a pep-8 filename check
 
