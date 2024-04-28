@@ -1,4 +1,6 @@
 # precommithooks
+================================================
+![Dynamic TOML Badge](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Frbroderi%2Fprecommithooks%2Fmain%2Fpyproject.toml&query=%24.project.version&label=Version)
 
 My custom precommit hooks, including a pep-8 filename check
 
