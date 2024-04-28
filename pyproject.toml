@@ -5,12 +5,19 @@ requires = ["setuptools>=67.0", "wheel"]
 [project]
 authors = [{"name" = "R.Broderick"}]
 description = "Pre-commit hooks for Python projects."
-version = "1.0.2"
+version = "1.0.3"
 license = {"file" = "LICENSE"}
 name = "precommithooks"
 readme = {file = "README.md", content-type = "text/markdown"}
 dependencies = ["typing-extensions; python_version < '3.12'"]
 requires-python = ">=3.10.0"
+classifiers = [
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12"
+]
 
 [project.optional-dependencies]
 dev = [
@@ -54,6 +61,10 @@ docs = [
 
 [project.scripts]
 check_names = "precommithooks:main"
+
+[project.urls]
+homepage = "https://github.com/rbroderi/precommithooks"
+documentation = "https://rbroderi.github.io/precommithooks/"
 
 [tool.dapperdata]
 exclude_paths = [".venv", ".mypy_cache", ".git", ".vscode"]
