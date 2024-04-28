@@ -109,7 +109,7 @@ def main() -> int:
     parser.add_argument(
         "-t",
         "--ignore-test-files",
-        action="store_true",
+        action="store_false",
         help="Ignore test files",
     )
     args = parser.parse_args()
